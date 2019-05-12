@@ -51,6 +51,7 @@ matrix:
       secret_access_key:
         secure: vT4x849c3mhEOp8wveFWyY22OqzJG/EsWBri+qtQjRQtyNCK0rqMW2fLl5gIPJ9F5IAsXPr+dTWPiyhMA5TZ3dtBtIYWdbcldRoBOlJx4hcz8Q+0pmvGZlx4lZSZLHtMa+S6+zuM7+fXrqdbvPtXpUs/I7P47nrFBSD0FrIztlMwVib2RleBsDzRdoO6tASCxollfL162xfwkNofYEz1fFEbrNCCPt0zJUrWeIsfSZJ3H77/9CQlXHVwZdijkNPYKQrDkG1mPS7UqxEEjAZGthDR+d8QxbJxzTtehalSTidHQSDrY0i8IFER56ngvQ5IlhA3ONECCeop423lHgFS3oilg56BPk9p/tAg0pWYQI4z9evr7QpxvvAhlbSnFF1wQRqBwOPeBS9zP/1+5ydxfpoZcZ7RgJIRQGK2E3KBPEBa0tcXIDIxmywXs5/aGKy+bhl8mzMXLHz3V2UNypCVvgRopNruROl8W9h145pzIFayW6Z3z8bbZ4dctl2RYe4E9OLEURL2urW31tEpngJjMaV6sri6vzo/OnLQGQatUQ/dGrLZjHN1rgFwyuSD4qtwZ66NrJ1P7EzfcUe+aeZwESeigAFIF5CWTdHW5vBJkjM2C2JbSz5LvZxkezQ5MGIGX85r57YbblollHLqMF5xeUqWONRaEC5Wpz3WWHGd8kQ=
       bucket: travis-deploy-test2
+      region: eu-west-1
       local-dir: deploy
       acl: public_read
       on:
@@ -70,6 +71,7 @@ matrix:
       secret_access_key:
         secure: vT4x849c3mhEOp8wveFWyY22OqzJG/EsWBri+qtQjRQtyNCK0rqMW2fLl5gIPJ9F5IAsXPr+dTWPiyhMA5TZ3dtBtIYWdbcldRoBOlJx4hcz8Q+0pmvGZlx4lZSZLHtMa+S6+zuM7+fXrqdbvPtXpUs/I7P47nrFBSD0FrIztlMwVib2RleBsDzRdoO6tASCxollfL162xfwkNofYEz1fFEbrNCCPt0zJUrWeIsfSZJ3H77/9CQlXHVwZdijkNPYKQrDkG1mPS7UqxEEjAZGthDR+d8QxbJxzTtehalSTidHQSDrY0i8IFER56ngvQ5IlhA3ONECCeop423lHgFS3oilg56BPk9p/tAg0pWYQI4z9evr7QpxvvAhlbSnFF1wQRqBwOPeBS9zP/1+5ydxfpoZcZ7RgJIRQGK2E3KBPEBa0tcXIDIxmywXs5/aGKy+bhl8mzMXLHz3V2UNypCVvgRopNruROl8W9h145pzIFayW6Z3z8bbZ4dctl2RYe4E9OLEURL2urW31tEpngJjMaV6sri6vzo/OnLQGQatUQ/dGrLZjHN1rgFwyuSD4qtwZ66NrJ1P7EzfcUe+aeZwESeigAFIF5CWTdHW5vBJkjM2C2JbSz5LvZxkezQ5MGIGX85r57YbblollHLqMF5xeUqWONRaEC5Wpz3WWHGd8kQ=
       bucket: travis-deploy-test2
+      region: eu-west-1
       local-dir: deploy
       acl: public_read
       on:
