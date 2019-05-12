@@ -1,12 +1,30 @@
 matrix:
   include:
 
-  - name: Windows deploy to GCP
+  - name: Windows deploy to GCS
     os: windows
     language: shell
 
     script:
-    - mv deploy/travis-deploy-test.zip deploy/travis-deploy-test-${TRAVIS_BUILD_NUMBER}-windows-deploy-to-gcp.zip
+    - mv deploy/travis-deploy-test.zip deploy/travis-deploy-test-${TRAVIS_BUILD_NUMBER}-windows-deploy-to-gcs.zip
+
+    deploy:
+      skip_cleanup: true
+      provider: gcs
+      access_key_id: GOOGIAF2W7H7Y76AU6AXK5WV
+      secret_access_key:
+        secure: lUSV+AZQJ694Jyo2C0xm+9Yrm4lDnZ8oVQHGb8pA502rPG4bmhuc8ox4uR565OO3QziZoMciyqkd8zll9hkWFpfVIjn2mceH0GamQs60nmuyhyW9YhXHogYKcWkhMauDJRp8A3JAmAG/wknSXSFe0YWZBXwFBAm7N9XbcNFintYIZArCY8dCkDTP/+Yr1MoM2vNydVQxTFA0QEeM08oruy4B0cvRDsrovy/yqAuM6KDSAiXbU+wPpMxqWR4sKFWNQksQzWDxqpJPF90sDaHL2cMObuNJF+GkV5XH2jq1pItLPOnZeK3iYg3+FU51od8Gz0fE0Cx7SnN6SB7sM/PouCD8kvKd1I/w3j72weYRRJCSopIkvNKinzn+UOKVKBbQeAjnyhHgWDWHNxr+6bwxmvxmS0yNvwDxKcvA5Utv0qjUKeCUBrfNKWEQJHiEOlsC6ZvpQ7GSV/F86HDeJJmG4rWY1hxif2YxSa/bcrmOx1WFhFr81ktAA98x1tA3xUQNGJpvHSwfFI3HIatuDkJCvu5dgCR++/v+IutNwNcBIXwUShPgWeaBmwF3FJpGD4LGhEP5Jl3ju7SJest87jRAFaIxxnWFf9n4m/WuMr9TNgss/qzNQqjj71ileuuQiwk76MEGfruf2irO1XnFLutLX84x+/+prsUZIR5wSLV9ZWc=
+      bucket: travis-deploy-test
+      local-dir: deploy
+      on:
+        all_branches: true
+
+  - name: Linux deploy to GCS
+    os: linux
+    language: shell
+
+    script:
+    - mv deploy/travis-deploy-test.zip deploy/travis-deploy-test-${TRAVIS_BUILD_NUMBER}-linux-deploy-to-gcs.zip
 
     deploy:
       skip_cleanup: true
