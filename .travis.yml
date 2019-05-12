@@ -1,38 +1,76 @@
 matrix:
   include:
 
-  - name: Windows deploy to GCS
+  # - name: Windows deploy to GCS
+  #   os: windows
+  #   language: shell
+
+  #   script:
+  #   - mv deploy/travis-deploy-test.zip deploy/travis-deploy-test-${TRAVIS_BUILD_NUMBER}-windows-deploy-to-gcs.zip
+
+  #   deploy:
+  #     skip_cleanup: true
+  #     provider: gcs
+  #     access_key_id: GOOGIAF2W7H7Y76AU6AXK5WV
+  #     secret_access_key:
+  #       secure: lUSV+AZQJ694Jyo2C0xm+9Yrm4lDnZ8oVQHGb8pA502rPG4bmhuc8ox4uR565OO3QziZoMciyqkd8zll9hkWFpfVIjn2mceH0GamQs60nmuyhyW9YhXHogYKcWkhMauDJRp8A3JAmAG/wknSXSFe0YWZBXwFBAm7N9XbcNFintYIZArCY8dCkDTP/+Yr1MoM2vNydVQxTFA0QEeM08oruy4B0cvRDsrovy/yqAuM6KDSAiXbU+wPpMxqWR4sKFWNQksQzWDxqpJPF90sDaHL2cMObuNJF+GkV5XH2jq1pItLPOnZeK3iYg3+FU51od8Gz0fE0Cx7SnN6SB7sM/PouCD8kvKd1I/w3j72weYRRJCSopIkvNKinzn+UOKVKBbQeAjnyhHgWDWHNxr+6bwxmvxmS0yNvwDxKcvA5Utv0qjUKeCUBrfNKWEQJHiEOlsC6ZvpQ7GSV/F86HDeJJmG4rWY1hxif2YxSa/bcrmOx1WFhFr81ktAA98x1tA3xUQNGJpvHSwfFI3HIatuDkJCvu5dgCR++/v+IutNwNcBIXwUShPgWeaBmwF3FJpGD4LGhEP5Jl3ju7SJest87jRAFaIxxnWFf9n4m/WuMr9TNgss/qzNQqjj71ileuuQiwk76MEGfruf2irO1XnFLutLX84x+/+prsUZIR5wSLV9ZWc=
+  #     bucket: travis-deploy-test
+  #     local-dir: deploy
+  #     on:
+  #       all_branches: true
+
+  # - name: Linux deploy to GCS
+  #   os: linux
+  #   language: shell
+
+  #   script:
+  #   - mv deploy/travis-deploy-test.zip deploy/travis-deploy-test-${TRAVIS_BUILD_NUMBER}-linux-deploy-to-gcs.zip
+
+  #   deploy:
+  #     skip_cleanup: true
+  #     provider: gcs
+  #     access_key_id: GOOGIAF2W7H7Y76AU6AXK5WV
+  #     secret_access_key:
+  #       secure: lUSV+AZQJ694Jyo2C0xm+9Yrm4lDnZ8oVQHGb8pA502rPG4bmhuc8ox4uR565OO3QziZoMciyqkd8zll9hkWFpfVIjn2mceH0GamQs60nmuyhyW9YhXHogYKcWkhMauDJRp8A3JAmAG/wknSXSFe0YWZBXwFBAm7N9XbcNFintYIZArCY8dCkDTP/+Yr1MoM2vNydVQxTFA0QEeM08oruy4B0cvRDsrovy/yqAuM6KDSAiXbU+wPpMxqWR4sKFWNQksQzWDxqpJPF90sDaHL2cMObuNJF+GkV5XH2jq1pItLPOnZeK3iYg3+FU51od8Gz0fE0Cx7SnN6SB7sM/PouCD8kvKd1I/w3j72weYRRJCSopIkvNKinzn+UOKVKBbQeAjnyhHgWDWHNxr+6bwxmvxmS0yNvwDxKcvA5Utv0qjUKeCUBrfNKWEQJHiEOlsC6ZvpQ7GSV/F86HDeJJmG4rWY1hxif2YxSa/bcrmOx1WFhFr81ktAA98x1tA3xUQNGJpvHSwfFI3HIatuDkJCvu5dgCR++/v+IutNwNcBIXwUShPgWeaBmwF3FJpGD4LGhEP5Jl3ju7SJest87jRAFaIxxnWFf9n4m/WuMr9TNgss/qzNQqjj71ileuuQiwk76MEGfruf2irO1XnFLutLX84x+/+prsUZIR5wSLV9ZWc=
+  #     bucket: travis-deploy-test
+  #     local-dir: deploy
+  #     on:
+  #       all_branches: true
+
+  - name: Windows deploy to AWS S3
     os: windows
     language: shell
 
     script:
-    - mv deploy/travis-deploy-test.zip deploy/travis-deploy-test-${TRAVIS_BUILD_NUMBER}-windows-deploy-to-gcs.zip
+    - mv deploy/travis-deploy-test.zip deploy/travis-deploy-test-${TRAVIS_BUILD_NUMBER}-windows-deploy-to-aws-s3.zip
 
     deploy:
       skip_cleanup: true
-      provider: gcs
-      access_key_id: GOOGIAF2W7H7Y76AU6AXK5WV
+      provider: s3
+      access_key_id: AKIASECMY25EGAHAYNF4
       secret_access_key:
-        secure: lUSV+AZQJ694Jyo2C0xm+9Yrm4lDnZ8oVQHGb8pA502rPG4bmhuc8ox4uR565OO3QziZoMciyqkd8zll9hkWFpfVIjn2mceH0GamQs60nmuyhyW9YhXHogYKcWkhMauDJRp8A3JAmAG/wknSXSFe0YWZBXwFBAm7N9XbcNFintYIZArCY8dCkDTP/+Yr1MoM2vNydVQxTFA0QEeM08oruy4B0cvRDsrovy/yqAuM6KDSAiXbU+wPpMxqWR4sKFWNQksQzWDxqpJPF90sDaHL2cMObuNJF+GkV5XH2jq1pItLPOnZeK3iYg3+FU51od8Gz0fE0Cx7SnN6SB7sM/PouCD8kvKd1I/w3j72weYRRJCSopIkvNKinzn+UOKVKBbQeAjnyhHgWDWHNxr+6bwxmvxmS0yNvwDxKcvA5Utv0qjUKeCUBrfNKWEQJHiEOlsC6ZvpQ7GSV/F86HDeJJmG4rWY1hxif2YxSa/bcrmOx1WFhFr81ktAA98x1tA3xUQNGJpvHSwfFI3HIatuDkJCvu5dgCR++/v+IutNwNcBIXwUShPgWeaBmwF3FJpGD4LGhEP5Jl3ju7SJest87jRAFaIxxnWFf9n4m/WuMr9TNgss/qzNQqjj71ileuuQiwk76MEGfruf2irO1XnFLutLX84x+/+prsUZIR5wSLV9ZWc=
-      bucket: travis-deploy-test
+        secure: vT4x849c3mhEOp8wveFWyY22OqzJG/EsWBri+qtQjRQtyNCK0rqMW2fLl5gIPJ9F5IAsXPr+dTWPiyhMA5TZ3dtBtIYWdbcldRoBOlJx4hcz8Q+0pmvGZlx4lZSZLHtMa+S6+zuM7+fXrqdbvPtXpUs/I7P47nrFBSD0FrIztlMwVib2RleBsDzRdoO6tASCxollfL162xfwkNofYEz1fFEbrNCCPt0zJUrWeIsfSZJ3H77/9CQlXHVwZdijkNPYKQrDkG1mPS7UqxEEjAZGthDR+d8QxbJxzTtehalSTidHQSDrY0i8IFER56ngvQ5IlhA3ONECCeop423lHgFS3oilg56BPk9p/tAg0pWYQI4z9evr7QpxvvAhlbSnFF1wQRqBwOPeBS9zP/1+5ydxfpoZcZ7RgJIRQGK2E3KBPEBa0tcXIDIxmywXs5/aGKy+bhl8mzMXLHz3V2UNypCVvgRopNruROl8W9h145pzIFayW6Z3z8bbZ4dctl2RYe4E9OLEURL2urW31tEpngJjMaV6sri6vzo/OnLQGQatUQ/dGrLZjHN1rgFwyuSD4qtwZ66NrJ1P7EzfcUe+aeZwESeigAFIF5CWTdHW5vBJkjM2C2JbSz5LvZxkezQ5MGIGX85r57YbblollHLqMF5xeUqWONRaEC5Wpz3WWHGd8kQ=
+      bucket: travis-deploy-test2
       local-dir: deploy
+      acl: public_read
       on:
         all_branches: true
 
-  - name: Linux deploy to GCS
+  - name: Linux deploy to AWS S3
     os: linux
     language: shell
 
     script:
-    - mv deploy/travis-deploy-test.zip deploy/travis-deploy-test-${TRAVIS_BUILD_NUMBER}-linux-deploy-to-gcs.zip
+    - mv deploy/travis-deploy-test.zip deploy/travis-deploy-test-${TRAVIS_BUILD_NUMBER}-linux-deploy-to-aws-s3.zip
 
     deploy:
       skip_cleanup: true
-      provider: gcs
-      access_key_id: GOOGIAF2W7H7Y76AU6AXK5WV
+      provider: s3
+      access_key_id: AKIASECMY25EGAHAYNF4
       secret_access_key:
-        secure: lUSV+AZQJ694Jyo2C0xm+9Yrm4lDnZ8oVQHGb8pA502rPG4bmhuc8ox4uR565OO3QziZoMciyqkd8zll9hkWFpfVIjn2mceH0GamQs60nmuyhyW9YhXHogYKcWkhMauDJRp8A3JAmAG/wknSXSFe0YWZBXwFBAm7N9XbcNFintYIZArCY8dCkDTP/+Yr1MoM2vNydVQxTFA0QEeM08oruy4B0cvRDsrovy/yqAuM6KDSAiXbU+wPpMxqWR4sKFWNQksQzWDxqpJPF90sDaHL2cMObuNJF+GkV5XH2jq1pItLPOnZeK3iYg3+FU51od8Gz0fE0Cx7SnN6SB7sM/PouCD8kvKd1I/w3j72weYRRJCSopIkvNKinzn+UOKVKBbQeAjnyhHgWDWHNxr+6bwxmvxmS0yNvwDxKcvA5Utv0qjUKeCUBrfNKWEQJHiEOlsC6ZvpQ7GSV/F86HDeJJmG4rWY1hxif2YxSa/bcrmOx1WFhFr81ktAA98x1tA3xUQNGJpvHSwfFI3HIatuDkJCvu5dgCR++/v+IutNwNcBIXwUShPgWeaBmwF3FJpGD4LGhEP5Jl3ju7SJest87jRAFaIxxnWFf9n4m/WuMr9TNgss/qzNQqjj71ileuuQiwk76MEGfruf2irO1XnFLutLX84x+/+prsUZIR5wSLV9ZWc=
-      bucket: travis-deploy-test
+        secure: vT4x849c3mhEOp8wveFWyY22OqzJG/EsWBri+qtQjRQtyNCK0rqMW2fLl5gIPJ9F5IAsXPr+dTWPiyhMA5TZ3dtBtIYWdbcldRoBOlJx4hcz8Q+0pmvGZlx4lZSZLHtMa+S6+zuM7+fXrqdbvPtXpUs/I7P47nrFBSD0FrIztlMwVib2RleBsDzRdoO6tASCxollfL162xfwkNofYEz1fFEbrNCCPt0zJUrWeIsfSZJ3H77/9CQlXHVwZdijkNPYKQrDkG1mPS7UqxEEjAZGthDR+d8QxbJxzTtehalSTidHQSDrY0i8IFER56ngvQ5IlhA3ONECCeop423lHgFS3oilg56BPk9p/tAg0pWYQI4z9evr7QpxvvAhlbSnFF1wQRqBwOPeBS9zP/1+5ydxfpoZcZ7RgJIRQGK2E3KBPEBa0tcXIDIxmywXs5/aGKy+bhl8mzMXLHz3V2UNypCVvgRopNruROl8W9h145pzIFayW6Z3z8bbZ4dctl2RYe4E9OLEURL2urW31tEpngJjMaV6sri6vzo/OnLQGQatUQ/dGrLZjHN1rgFwyuSD4qtwZ66NrJ1P7EzfcUe+aeZwESeigAFIF5CWTdHW5vBJkjM2C2JbSz5LvZxkezQ5MGIGX85r57YbblollHLqMF5xeUqWONRaEC5Wpz3WWHGd8kQ=
+      bucket: travis-deploy-test2
       local-dir: deploy
+      acl: public_read
       on:
         all_branches: true
