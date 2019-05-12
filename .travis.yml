@@ -1,0 +1,21 @@
+
+matrix:
+  include:
+    - name: "Windows deploy to GCP"
+      os: windows
+      language: shell
+
+      script:
+        - mv deploy/travis-deploy-test.zip deploy/travis-deploy-test-${TRAVIS_BUILD_NUMBER}-windows-deploy-to-gcp.zip
+
+      deploy:
+        skip_cleanup: true
+        provider: gcs
+        access_key_id: <TODO>
+        secret_access_key:
+          secure: <TODO>
+        bucket: travis-deploy-test
+        local-dir: deploy
+
+        on:
+          all_branches: true
